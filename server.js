@@ -1,5 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import authRoutes from './Routes/authRoutes.js';
 
 const app = express();
 
@@ -11,6 +12,10 @@ mongoose.connect(mongoUrl, {
     useUnifiedTopology: true
 }).then(() => {
     console.log('MongoDB connected');
+
+    app.use(express.json());
+
+    app.use('/', authRoutes);
 
     app.listen(PORT, () => {
         console.log(`Server running on 'http://localhost:${PORT}`)
