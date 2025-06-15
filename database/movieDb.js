@@ -15,6 +15,6 @@ const MovieSchema = new mongoose.Schema({
 })
 
 // Applying autoincrement on id
-MovieSchema.plugin(AutoIncrement, { inc_field: '_id' });
+MovieSchema.plugin(AutoIncrement, { inc_field: 'movie_id' });
 
 export default mongoose.model('Movies', MovieSchema);
