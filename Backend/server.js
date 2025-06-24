@@ -34,10 +34,8 @@ app.use(express.json());
 app.use('/', authRoutes);
 
 // 🔹 MongoDB Connection and Server Start
-mongoose.connect(mongoUrl, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}).then(() => {
+mongoose.connect(mongoUrl)
+.then(() => {
     console.log('MongoDB connected');
 
     app.listen(PORT, () => {
