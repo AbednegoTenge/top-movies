@@ -3,7 +3,7 @@
 <% block('title', 'Favorite Movies') %>
 
 <div class="container">
-  <h1 class="heading">My top 10 Movies</h1>
+  <h1 class="heading">Your Favorite Movies</h1>
   <p class="description">These are my all-time favorite movies.</p>
 
   <% movies.forEach((movie) => { %>
@@ -25,7 +25,7 @@
         <p class="overview"><%= movie.description %></p>
 
         <a href="/edit/<%= movie.id %>" class="button">Update</a>
-        <a href="/delete/<%= movie.id %>" class="button delete-button">Delete</a>
+        <a href="#" class="delete-button button " data-id="<%= movie.id %>">Delete</a>
       </div>
       </div>
     </div>
