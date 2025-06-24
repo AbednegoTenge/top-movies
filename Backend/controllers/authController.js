@@ -140,7 +140,9 @@ const authController = {
 
             const deletedMovie = await Movies.findOneAndDelete({ id: movieId });
 
-            if (!deletedMovie) {
+            if (deletedMovie) {
+                return res.status(200).send('Movie Deleted');
+            } else {
                 return res.status(404).send('Movie not found');
             }
 
