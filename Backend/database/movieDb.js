@@ -1,10 +1,11 @@
 import mongoose from 'mongoose';
 import mongooseSequence from 'mongoose-sequence';
 
+
 const AutoIncrement = mongooseSequence(mongoose);
 
-
 const MovieSchema = new mongoose.Schema({
+    id: { type: Number},
     title: { type: String, required: true },
     rating: { type: Number, min: 0, max: 10 },
     ranking: Number,
@@ -14,7 +15,8 @@ const MovieSchema = new mongoose.Schema({
     image_url: String
 })
 
-// Applying autoincrement on id
-MovieSchema.plugin(AutoIncrement, { inc_field: 'movie_id' });
+MovieSchema.plugin(AutoIncrement, {
+    inc_field: 'id'
+});
 
 export default mongoose.model('Movies', MovieSchema);

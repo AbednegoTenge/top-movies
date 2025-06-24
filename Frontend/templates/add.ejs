@@ -1,0 +1,15 @@
+<% layout('base') %>
+
+<% block('title', 'Add Movie') %>
+
+<% block('content') %>
+<div class="content">
+  <h1 class="heading">Add a Movie</h1>
+  <form action="" method="post" class="form" role="form" novalidate="">
+    <input id="csrf_token" name="csrf_token" type="hidden" value="IjFmODQ4MDM4OGZjOTg2M2VjOTZjM2VkOWQ1OGFlYTc0MDg2MjBiYTci.aFLXkg.WZsOQy0-BlMb6D6-XFNevJZ-Teg">
+    <div class="mb-3"><label class="form-label" for="title">Movie Title</label>
+      <input class="form-control" id="title" name="title" type="text" value="" data-listener-added_8e58957c="true">
+    </div>
+    <input class="btn btn-primary btn-md" id="add" name="add" type="submit" value="Add">        
+    </form>
+</div>
