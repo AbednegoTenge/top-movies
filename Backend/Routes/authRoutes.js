@@ -1,7 +1,5 @@
 import express from 'express';
 import authController from '../controllers/authController.js';
-import axios from 'axios';
-import Movies from '../database/movieDb.js';
 
 const router = express.Router();
 
