@@ -129,6 +129,27 @@ const authController = {
             res.status(500).send('Failed to update movie');
         }
     },
+
+    async delete(req, res) {
+        const movieId = Number(req.params.id);
+
+        try{
+            if (isNaN(movieId)) {
+                return res.status(400).send('Invalid movie ID');
+            }
+
+            const deletedMovie = await Movies.findOneAndDelete({ id: movieId });
+
+            if (!deletedMovie) {
+                return res.status(404).send('Movie not found');
+            }
+
+            res.redirect('/')
+        } catch (err) {
+            console.error('Error deleting movie:', err.message);
+            res.status(500).send('Server error');
+        }
+    }
 };
 
 
