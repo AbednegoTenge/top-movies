@@ -38,5 +38,31 @@
   </head>
   <body>
     <%- body %>
+    <script>
+      document.querySelectorAll('.delete-button').forEach(button => {
+        button.addEventListener('click', async function(e) {
+          e.preventDefault(); // prevent normal link behavior
+          const movieId = this.dataset.id;
+
+          const confirmDelete = confirm('Are you sure you want to delete this movie?');
+          if (!confirmDelete) return;
+
+          try {
+            const res = await fetch(`/delete/${movieId}`, {
+              method: 'DELETE'
+            });
+
+            if (res.ok) {
+              location.reload();
+            } else {
+              alert('Failed to delete movie.');
+            }
+          } catch (err) {
+            console.error('Delete failed', err);
+            alert('Something went wrong.');
+          }
+        });
+      });
+    </script>
   </body>
 </html>
